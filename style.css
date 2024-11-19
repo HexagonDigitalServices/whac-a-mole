@@ -1,0 +1,128 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: rgb(58, 129, 0);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Game Info */
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.score, .timer, .best-score {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+/* Game Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+}
+.hole {
+    background-color: rgb(165, 85, 11);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 10px 0 7px rgb(53, 21, 6),
+                inset 0 20px 20px 15px rgba(0, 0, 0, 0.3),
+                0 0 5px rgba(0, 0, 0, 0.5);
+}
+.mole {
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: rise 0.3s ease-out;
+}
+@keyframes rise {
+    0% { transform: translateX(-50%) translateY(100%); }
+    100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* Custom Cursor */
+.cursor {
+    height: 100px;
+    width: 80px;
+    background-image: url('assets/hammer.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+}
+.cursor.active {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Popup Screens */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure popups are above the game board */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background-color: rgb(44, 98, 0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(58, 129, 0);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .info h1, .info h2, .info h3 {
+        font-size: 1.2em;
+    }
+    .board {
+        gap: 5px;
+    }
+    .cursor {
+        height: 80px;
+        width: 60px;
+    }
+}

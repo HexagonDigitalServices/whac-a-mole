@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Whack-a-Mole Game</title>
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="popup active">
+        <h1>Whack-a-Mole</h1>
+        <button id="start-button">Start Game</button>
+    </div>
+
+    <!-- Game Info -->
+    <div class="info">
+        <h1 class="score">SCORE: <span>00</span></h1>
+        <h2 class="timer">TIME: <span>30</span>s</h2>
+        <h3 class="best-score">BEST SCORE: <span>00</span></h3>
+    </div>
+
+    <!-- Game Board -->
+    <div class="board">
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- End Screen -->
+    <div id="end-screen" class="popup">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="final-score">00</span></p>
+        <button id="restart-button">Restart Game</button>
+    </div>
+
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
