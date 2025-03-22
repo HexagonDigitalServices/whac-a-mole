@@ -17,7 +17,7 @@ let bestScore = localStorage.getItem('bestScore') || 0;
 let gameInterval, timerInterval;
 
 // Audio for Smash
-const smashSound = new Audio("assets/smash.mp3");
+const smashSound = new Audio("assets/smash.mp3"); 
 
 // Update Best Score
 bestScoreEl.textContent = bestScore;
